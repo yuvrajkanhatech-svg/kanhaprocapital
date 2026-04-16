@@ -3,40 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login | Kanha Pro-Capital</title>
+    <title>Admin Dashboard | Kanha Pro-Capital</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; flex-direction: column; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; flex-direction: column; }
         .no-print { display: block; }
         
-        /* Login Page Styling */
+        /* Login Page */
         #loginPage { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 100%; max-width: 400px; text-align: center; border-top: 8px solid #002D62; }
-        .logo { font-size: 24px; font-weight: bold; color: #002D62; margin-bottom: 5px; text-transform: uppercase; }
-        .udyam-label { font-size: 10px; color: #a87d00; font-weight: bold; margin-bottom: 25px; display: block; }
+        .logo-text { font-size: 24px; font-weight: bold; color: #002D62; text-transform: uppercase; margin-bottom: 5px; }
+        .udyam-tag { font-size: 11px; color: #a87d00; font-weight: bold; margin-bottom: 20px; display: block; }
         input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
-        .btn-main { width: 100%; padding: 14px; background: #002D62; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 16px; transition: 0.3s; }
+        .btn-main { width: 100%; padding: 14px; background: #002D62; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; }
         .btn-main:hover { background: #004a99; }
 
-        /* Dashboard Styling */
+        /* Dashboard */
         #dashboard { display: none; width: 100%; max-width: 900px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center; }
-        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px; }
-        .menu-card { padding: 30px; border: 2px solid #002D62; border-radius: 12px; cursor: pointer; transition: 0.3s; font-weight: bold; color: #002D62; }
-        .menu-card:hover { background: #002D62; color: white; transform: translateY(-5px); }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; margin-top: 25px; }
+        .menu-card { padding: 20px; border: 2px solid #002D62; border-radius: 12px; cursor: pointer; transition: 0.3s; font-weight: bold; color: #002D62; text-align: center; font-size: 14px; }
+        .menu-card:hover { background: #002D62; color: white; transform: translateY(-3px); }
+        
+        /* CIBIL Buttons */
+        .cibil-main { border-color: #28a745; color: #28a745; }
+        .cibil-main:hover { background: #28a745; }
+        .cibil-backup { border-color: #007bff; color: #007bff; }
+        .cibil-backup:hover { background: #007bff; }
 
         /* Tool Sections */
-        .tool-section { display: none; margin-top: 20px; text-align: left; }
-        .back-btn { margin-bottom: 20px; padding: 8px 15px; background: #666; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .tool-section { display: none; width: 100%; max-width: 700px; background: white; padding: 20px; border-radius: 15px; margin-top: 20px; text-align: left; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .back-btn { margin-bottom: 15px; padding: 8px 15px; background: #666; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .output-box { margin-top: 20px; padding: 20px; border: 1px solid #eee; background: #fff; }
 
-        /* Shared Print Layouts from Previous Codes */
-        .output-box { margin-top: 20px; border: 1px solid #ccc; padding: 20px; background: #fff; }
-        
-        @media print { .no-print, #loginPage, #dashboard, .back-btn, .form-box { display: none !important; } body { background: white; } .output-box { border: none; box-shadow: none; width: 100%; } }
+        /* CIBIL Guide Table */
+        .cibil-guide { margin-top: 25px; background: #fffbe6; padding: 15px; border-radius: 10px; border: 1px solid #ffe58f; font-size: 13px; text-align: left; }
+        .cibil-guide table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+        .cibil-guide td { padding: 5px; border-bottom: 1px solid #eee; }
+
+        @media print { .no-print, #loginPage, #dashboard, .back-btn, input, .btn-main { display: none !important; } body { background: white; } .output-box { border: none; padding: 0; } }
     </style>
 </head>
 <body>
 
 <div id="loginPage" class="no-print">
-    <div class="logo">KANHA PRO-CAPITAL</div>
-    <span class="udyam-label">UDYAM-CG-15-0035950</span>
+    <div class="logo-text">KANHA PRO-CAPITAL</div>
+    <span class="udyam-tag">MSME: UDYAM-CG-15-0035950</span>
     <h3>Admin Login</h3>
     <input type="email" id="userEmail" placeholder="Email ID">
     <input type="password" id="userPass" placeholder="Password">
@@ -44,45 +53,54 @@
 </div>
 
 <div id="dashboard" class="no-print">
-    <h2 id="welcomeText">Welcome, Admin</h2>
+    <h2 id="welcomeText">Welcome</h2>
     <div class="menu-grid">
-        <div class="menu-card" onclick="showTool('loanCardTool')">📇<br>Generate Loan Card</div>
-        <div class="menu-card" onclick="showTool('fdCertTool')">📜<br>Investment Certificate</div>
-        <div class="menu-card" onclick="showTool('agreementTool')">✍️<br>Loan Agreement</div>
+        <div class="menu-card" onclick="showTool('loanCardTool')">📇<br>Loan Card</div>
+        <div class="menu-card" onclick="showTool('fdCertTool')">📜<br>FD Certificate</div>
+        <div class="menu-card" onclick="showTool('agreementTool')">✍️<br>Agreement</div>
+        <div class="menu-card cibil-main" onclick="window.open('https://www.cibil.com/freecreditscore', '_blank')">📊<br>CIBIL (Main)</div>
+        <div class="menu-card cibil-backup" onclick="window.open('https://www.paisabazaar.com/cibil-score/', '_blank')">🔄<br>CIBIL (Backup)</div>
     </div>
-    <button onclick="location.reload()" style="margin-top: 30px; border: none; background: none; color: red; cursor: pointer;">Logout</button>
+
+    <div class="cibil-guide">
+        <strong style="color: #856404;">CIBIL Indicator (Field Guide)</strong>
+        <table>
+            <tr style="color: green;"><td><b>750 - 900</b></td><td>Best (Loan Confirm)</td></tr>
+            <tr style="color: #b8860b;"><td><b>650 - 750</b></td><td>Average (Guarantor Lo)</td></tr>
+            <tr style="color: red;"><td><b>Below 650</b></td><td>Risk (Nahi Dena Hai)</td></tr>
+        </table>
+        <p style="font-size: 11px; margin-top: 10px; color: #666;">*Agar site error de, toh customer ka Google Pay check karein.</p>
+    </div>
+
+    <button onclick="location.reload()" style="margin-top: 30px; border: none; background: none; color: red; cursor: pointer; font-weight: bold;">Logout</button>
 </div>
 
 <div id="loanCardTool" class="tool-section container">
     <button class="back-btn" onclick="showDashboard()">← Dashboard</button>
     <h3>Loan Card Generator</h3>
-    <div class="form-box no-print">
-        <input type="text" id="lcName" placeholder="Customer Name">
-        <input type="number" id="lcAmt" placeholder="Loan Amount">
-        <input type="date" id="lcDate">
-        <button class="btn-main" onclick="generateLoanCard()">Generate Card</button>
-    </div>
+    <input type="text" id="lcName" placeholder="Customer Name">
+    <input type="number" id="lcAmt" placeholder="Loan Amount (₹)">
+    <input type="date" id="lcDate">
+    <button class="btn-main" onclick="generateLoanCard()">Generate & Show</button>
     <div id="lcOutput" class="output-box"></div>
 </div>
 
 <div id="fdCertTool" class="tool-section container">
     <button class="back-btn" onclick="showDashboard()">← Dashboard</button>
-    <h3>Investment Certificate Generator</h3>
-    <div class="form-box no-print">
-        <input type="text" id="fdName" placeholder="Investor Name">
-        <input type="number" id="fdAmt" placeholder="Amount">
-        <input type="number" id="fdMonths" placeholder="Months">
-        <input type="date" id="fdDate">
-        <button class="btn-main" onclick="generateFDCert()">Generate Certificate</button>
-    </div>
+    <h3>Investment Certificate</h3>
+    <input type="text" id="fdName" placeholder="Investor Name">
+    <input type="number" id="fdAmt" placeholder="Amount (₹)">
+    <input type="number" id="fdMonths" placeholder="Duration (Months)">
+    <input type="date" id="fdDate">
+    <button class="btn-main" onclick="generateFDCert()">Create Certificate</button>
     <div id="fdOutput" class="output-box"></div>
 </div>
 
 <div id="agreementTool" class="tool-section container">
     <button class="back-btn" onclick="showDashboard()">← Dashboard</button>
     <h3>Loan Agreement</h3>
-    <p>Print standard 6% reducing agreement from here.</p>
-    <button class="btn-main" onclick="window.print()">Print Blank Agreement</button>
+    <p>Official 6% Reducing Interest Agreement Draft.</p>
+    <button class="btn-main" onclick="window.print()">Print Blank Draft</button>
 </div>
 
 <script>
@@ -94,11 +112,10 @@
     function handleLogin() {
         const email = document.getElementById('userEmail').value;
         const pass = document.getElementById('userPass').value;
-
         if (users[email] && users[email] === pass) {
             document.getElementById('loginPage').style.display = 'none';
             document.getElementById('dashboard').style.display = 'block';
-            document.getElementById('welcomeText').innerText = "Welcome, " + email.split('.')[0].toUpperCase();
+            document.getElementById('welcomeText').innerText = "Hello, " + email.split('.')[0].toUpperCase();
         } else {
             alert("Sahi ID ya Password dalein!");
         }
@@ -117,15 +134,14 @@
         document.getElementById('dashboard').style.display = 'block';
     }
 
-    // Generator Functions (Same as previous but targeted to divs)
     function generateLoanCard() {
         const name = document.getElementById('lcName').value;
         const amt = document.getElementById('lcAmt').value;
         const date = document.getElementById('lcDate').value;
-        if(!name || !amt || !date) return alert("Details bhariye");
-        
+        if(!name || !amt || !date) return alert("Sari details bhariye!");
+
         let emi = (amt * 0.06 * Math.pow(1.06, 5)) / (Math.pow(1.06, 5) - 1);
-        let table = `<table border="1" style="width:100%; font-size:12px; margin-top:10px;"><tr><th>EMI</th><th>Amount</th><th>Date</th></tr>`;
+        let table = `<table border="1" style="width:100%; border-collapse:collapse; font-size:12px; margin-top:10px;"><tr><th>EMI No</th><th>Amount</th><th>Date</th></tr>`;
         for(let i=1; i<=5; i++) {
             let d = new Date(date); d.setMonth(d.getMonth() + (i-1));
             table += `<tr><td>${i}</td><td>₹${Math.round(emi)}</td><td>${d.toLocaleDateString('en-GB')}</td></tr>`;
@@ -133,12 +149,15 @@
         table += `</table>`;
 
         document.getElementById('lcOutput').innerHTML = `
-            <div style="border:2px solid #002D62; padding:15px; width:300px; margin:auto;">
-                <h4 style="margin:0; color:#002D62;">KANHA PRO-CAPITAL</h4>
+            <div style="border:2px solid #002D62; padding:15px; width:300px; margin:auto; text-align:center; background:#fff;">
+                <h3 style="margin:0; color:#002D62;">KANHA PRO-CAPITAL</h3>
                 <small>UDYAM-CG-15-0035950</small><hr>
-                <p><b>Name:</b> ${name}<br><b>Loan:</b> ₹${amt}</p>
+                <div style="text-align:left; font-size:13px;">
+                    <b>Customer:</b> ${name}<br>
+                    <b>Loan Amt:</b> ₹${amt}
+                </div>
                 ${table}
-                <button class="no-print" onclick="window.print()" style="margin-top:10px;">Print Card</button>
+                <button class="no-print" onclick="window.print()" style="margin-top:10px; padding:5px 15px; background:#002D62; color:white; border:none; cursor:pointer;">Print Card</button>
             </div>`;
     }
 
@@ -147,17 +166,20 @@
         const amt = document.getElementById('fdAmt').value;
         const months = document.getElementById('fdMonths').value;
         const date = document.getElementById('fdDate').value;
-        
+        if(!name || !amt || !months || !date) return alert("Details bhariye!");
+
         document.getElementById('fdOutput').innerHTML = `
-            <div style="border:10px solid #002D62; padding:30px; text-align:center;">
-                <h2>INVESTMENT CERTIFICATE</h2>
-                <p>This is to certify that <b>${name}</b> has invested <b>₹${amt}</b> for <b>${months} months</b>.</p>
-                <p>Monthly Return: 3% Fixed</p>
-                <div style="margin-top:40px; text-align:right;">Proprietor Stamp Attached<br><b>Yuvraj Dewangan</b></div>
-                <button class="no-print" onclick="window.print()">Print FD</button>
+            <div style="border:10px solid #002D62; padding:30px; text-align:center; background:#fff;">
+                <h2 style="color:#002D62;">INVESTMENT CERTIFICATE</h2>
+                <p style="font-size:18px;">Certified that <b>${name}</b> has invested <b>₹${amt}</b> for <b>${months} months</b>.</p>
+                <p>Monthly Return: 3% Fixed | MSME: UDYAM-CG-15-0035950</p>
+                <div style="margin-top:50px; text-align:right;">
+                    <p>__________________</p>
+                    <p><b>Yuvraj Dewangan</b><br>(Proprietor Signature)</p>
+                </div>
+                <button class="no-print" onclick="window.print()" style="padding:10px 20px; background:#002D62; color:white; border:none; cursor:pointer;">Print Certificate</button>
             </div>`;
     }
 </script>
-
 </body>
 </html>
