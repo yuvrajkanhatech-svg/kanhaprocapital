@@ -14,31 +14,30 @@
         .udyam-tag { font-size: 11px; color: #a87d00; font-weight: bold; margin-bottom: 20px; display: block; }
         input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
         .btn-main { width: 100%; padding: 14px; background: #002D62; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; }
-        .btn-main:hover { background: #004a99; }
 
         /* Dashboard */
         #dashboard { display: none; width: 100%; max-width: 900px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center; }
-        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; margin-top: 25px; }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 25px; }
         .menu-card { padding: 20px; border: 2px solid #002D62; border-radius: 12px; cursor: pointer; transition: 0.3s; font-weight: bold; color: #002D62; text-align: center; font-size: 14px; }
         .menu-card:hover { background: #002D62; color: white; transform: translateY(-3px); }
         
-        /* CIBIL Buttons */
-        .cibil-main { border-color: #28a745; color: #28a745; }
-        .cibil-main:hover { background: #28a745; }
-        .cibil-backup { border-color: #007bff; color: #007bff; }
-        .cibil-backup:hover { background: #007bff; }
-
         /* Tool Sections */
-        .tool-section { display: none; width: 100%; max-width: 700px; background: white; padding: 20px; border-radius: 15px; margin-top: 20px; text-align: left; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .tool-section { display: none; width: 100%; max-width: 800px; background: white; padding: 20px; border-radius: 15px; margin-top: 20px; text-align: left; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .back-btn { margin-bottom: 15px; padding: 8px 15px; background: #666; color: white; border: none; border-radius: 5px; cursor: pointer; }
-        .output-box { margin-top: 20px; padding: 20px; border: 1px solid #eee; background: #fff; }
 
-        /* CIBIL Guide Table */
-        .cibil-guide { margin-top: 25px; background: #fffbe6; padding: 15px; border-radius: 10px; border: 1px solid #ffe58f; font-size: 13px; text-align: left; }
-        .cibil-guide table { width: 100%; border-collapse: collapse; margin-top: 8px; }
-        .cibil-guide td { padding: 5px; border-bottom: 1px solid #eee; }
+        /* PROFESSIONAL FD CERTIFICATE STYLING (Aapke code se liya gaya) */
+        .certificate { width: 700px; padding: 40px; background: white; border: 15px solid #002D62; position: relative; margin: 20px auto; border-image: linear-gradient(to bottom right, #002D62, #004a99) 1; font-family: 'Times New Roman', serif; display: none; }
+        .cert-inner { border: 2px solid #FFD700; padding: 40px; text-align: center; }
+        .cert-logo { font-size: 36px; font-weight: bold; color: #002D62; margin: 0; text-transform: uppercase; }
+        .cert-udyam { font-size: 13px; color: #444; margin-bottom: 25px; letter-spacing: 1px; }
+        .cert-h2 { font-size: 28px; color: #a87d00; text-decoration: underline; margin-top: 10px; font-family: 'Georgia', serif; }
+        .cert-content { text-align: justify; line-height: 2; font-size: 19px; margin: 40px 0; color: #222; }
+        .footer-area { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 60px; }
+        .stamp-box { border: 2px solid #002D62; color: #002D62; padding: 10px; border-radius: 50%; width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; text-align: center; transform: rotate(-10deg); opacity: 0.7; }
+        .sign-box { text-align: right; }
+        .sign-line { border-top: 2px solid #333; width: 180px; margin-top: 40px; }
 
-        @media print { .no-print, #loginPage, #dashboard, .back-btn, input, .btn-main { display: none !important; } body { background: white; } .output-box { border: none; padding: 0; } }
+        @media print { .no-print, #loginPage, #dashboard, .back-btn, input, .btn-main, .tool-section h3 { display: none !important; } body { background: white; } .certificate { display: block !important; box-shadow: none; width: 95%; border: 10px solid #002D62; margin: 0; } }
     </style>
 </head>
 <body>
@@ -58,90 +57,119 @@
         <div class="menu-card" onclick="showTool('loanCardTool')">📇<br>Loan Card</div>
         <div class="menu-card" onclick="showTool('fdCertTool')">📜<br>FD Certificate</div>
         <div class="menu-card" onclick="showTool('agreementTool')">✍️<br>Agreement</div>
-        <div class="menu-card cibil-main" onclick="window.open('https://www.cibil.com/freecreditscore', '_blank')">📊<br>CIBIL (Main)</div>
-        <div class="menu-card cibil-backup" onclick="window.open('https://www.paisabazaar.com/cibil-score/', '_blank')">🔄<br>CIBIL (Backup)</div>
+        <div class="menu-card" onclick="window.open('https://www.cibil.com/freecreditscore', '_blank')" style="border-color:#28a745; color:#28a745;">📊<br>CIBIL Check</div>
     </div>
-
-    <div class="cibil-guide">
-        <strong style="color: #856404;">CIBIL Indicator (Field Guide)</strong>
-        <table>
-            <tr style="color: green;"><td><b>750 - 900</b></td><td>Best (Loan Confirm)</td></tr>
-            <tr style="color: #b8860b;"><td><b>650 - 750</b></td><td>Average (Guarantor Lo)</td></tr>
-            <tr style="color: red;"><td><b>Below 650</b></td><td>Risk (Nahi Dena Hai)</td></tr>
-        </table>
-        <p style="font-size: 11px; margin-top: 10px; color: #666;">*Agar site error de, toh customer ka Google Pay check karein.</p>
-    </div>
-
     <button onclick="location.reload()" style="margin-top: 30px; border: none; background: none; color: red; cursor: pointer; font-weight: bold;">Logout</button>
 </div>
 
-<div id="loanCardTool" class="tool-section container">
-    <button class="back-btn" onclick="showDashboard()">← Dashboard</button>
+<div id="loanCardTool" class="tool-section container no-print">
+    <button class="back-btn" onclick="showDashboard()">← Back</button>
     <h3>Loan Card Generator</h3>
     <input type="text" id="lcName" placeholder="Customer Name">
     <input type="number" id="lcAmt" placeholder="Loan Amount (₹)">
     <input type="date" id="lcDate">
-    <button class="btn-main" onclick="generateLoanCard()">Generate & Show</button>
-    <div id="lcOutput" class="output-box"></div>
+    <button class="btn-main" onclick="generateLoanCard()">Create Card</button>
+    <div id="lcOutput"></div>
 </div>
 
-<div id="fdCertTool" class="tool-section container">
-    <button class="back-btn" onclick="showDashboard()">← Dashboard</button>
-    <h3>Investment Certificate</h3>
-    <input type="text" id="fdName" placeholder="Investor Name">
-    <input type="number" id="fdAmt" placeholder="Amount (₹)">
-    <input type="number" id="fdMonths" placeholder="Duration (Months)">
-    <input type="date" id="fdDate">
-    <button class="btn-main" onclick="generateFDCert()">Create Certificate</button>
-    <div id="fdOutput" class="output-box"></div>
+<div id="fdCertTool" class="tool-section container no-print">
+    <button class="back-btn" onclick="showDashboard()">← Back</button>
+    <h3>New FD Certificate</h3>
+    <input type="text" id="invName" placeholder="Investor Name">
+    <input type="number" id="invAmt" placeholder="Investment Amount (₹)">
+    <input type="number" id="invMonths" placeholder="Duration (Months)">
+    <input type="date" id="invDate">
+    <button class="btn-main" onclick="generateProfessionalCert()">Generate Certificate</button>
 </div>
 
-<div id="agreementTool" class="tool-section container">
-    <button class="back-btn" onclick="showDashboard()">← Dashboard</button>
+<div id="certDisplayArea" class="certificate">
+    <div class="cert-inner">
+        <p class="cert-logo">KANHA PRO-CAPITAL</p>
+        <p class="cert-udyam">MSME REGISTERED: <strong>UDYAM-CG-15-0035950</strong></p>
+        <h2 class="cert-h2">FIXED DEPOSIT CERTIFICATE</h2>
+        <div class="cert-content">
+            This is to certify that <strong>Shri/Smt. <span id="outInvName"></span></strong> has invested a sum of 
+            <strong>₹<span id="outInvAmt"></span></strong> with Kanha Pro-Capital for a period of 
+            <strong><span id="outInvMonths"></span> months</strong> starting from <span id="outInvDate"></span>. 
+            The organization guarantees a <strong>Monthly Fixed Return of 3%</strong> on the principal amount.
+        </div>
+        <div class="footer-area">
+            <div style="text-align: left; font-size: 15px;">
+                <p><strong>Place:</strong> Rajnandgaon (C.G.)</p>
+                <p><strong>Ref No:</strong> KP/FD/<span id="outRef"></span></p>
+            </div>
+            <div class="stamp-box">PROPRIETOR STAMP<br>KANHA PRO-CAPITAL<br>RAJNANDGAON</div>
+            <div class="sign-box">
+                <p style="margin-bottom: 40px;">For, <strong>Kanha Pro-Capital</strong></p>
+                <div class="sign-line"></div>
+                <p><strong>Yuvraj Dewangan</strong><br>(Proprietor)</p>
+            </div>
+        </div>
+    </div>
+    <button class="btn-main no-print" style="margin-top:20px;" onclick="window.print()">Print Certificate Now</button>
+</div>
+
+<div id="agreementTool" class="tool-section container no-print">
+    <button class="back-btn" onclick="showDashboard()">← Back</button>
     <h3>Loan Agreement</h3>
     <p>Official 6% Reducing Interest Agreement Draft.</p>
     <button class="btn-main" onclick="window.print()">Print Blank Draft</button>
 </div>
 
 <script>
-    const users = {
-        "yuvraj.kanhatech@gmail.com": "yur@j123",
-        "laxminarayan.kanhatech@gmail.com": "laxmi@123"
-    };
+    const users = {"yuvraj.kanhatech@gmail.com": "yur@j123", "laxminarayan.kanhatech@gmail.com": "laxmi@123"};
 
     function handleLogin() {
         const email = document.getElementById('userEmail').value;
         const pass = document.getElementById('userPass').value;
-        if (users[email] && users[email] === pass) {
+        if (users[email] === pass) {
             document.getElementById('loginPage').style.display = 'none';
             document.getElementById('dashboard').style.display = 'block';
             document.getElementById('welcomeText').innerText = "Hello, " + email.split('.')[0].toUpperCase();
-        } else {
-            alert("Sahi ID ya Password dalein!");
-        }
+        } else { alert("Galat Details!"); }
     }
 
     function showTool(toolId) {
         document.getElementById('dashboard').style.display = 'none';
         const sections = document.getElementsByClassName('tool-section');
         for(let s of sections) s.style.display = 'none';
+        document.getElementById('certDisplayArea').style.display = 'none';
         document.getElementById(toolId).style.display = 'block';
     }
 
     function showDashboard() {
         const sections = document.getElementsByClassName('tool-section');
         for(let s of sections) s.style.display = 'none';
+        document.getElementById('certDisplayArea').style.display = 'none';
         document.getElementById('dashboard').style.display = 'block';
+    }
+
+    function generateProfessionalCert() {
+        const name = document.getElementById('invName').value;
+        const amt = document.getElementById('invAmt').value;
+        const months = document.getElementById('invMonths').value;
+        const date = document.getElementById('invDate').value;
+
+        if(!name || !amt || !months || !date) { alert("Sari details bhariye!"); return; }
+
+        document.getElementById('outInvName').innerText = name;
+        document.getElementById('outInvAmt').innerText = parseInt(amt).toLocaleString('en-IN');
+        document.getElementById('outInvMonths').innerText = months;
+        document.getElementById('outInvDate').innerText = new Date(date).toLocaleDateString('en-GB');
+        document.getElementById('outRef').innerText = Math.floor(1000 + Math.random() * 9000);
+
+        document.getElementById('fdCertTool').style.display = 'none';
+        document.getElementById('certDisplayArea').style.display = 'block';
     }
 
     function generateLoanCard() {
         const name = document.getElementById('lcName').value;
         const amt = document.getElementById('lcAmt').value;
         const date = document.getElementById('lcDate').value;
-        if(!name || !amt || !date) return alert("Sari details bhariye!");
+        if(!name || !amt || !date) return alert("Details bhariye!");
 
         let emi = (amt * 0.06 * Math.pow(1.06, 5)) / (Math.pow(1.06, 5) - 1);
-        let table = `<table border="1" style="width:100%; border-collapse:collapse; font-size:12px; margin-top:10px;"><tr><th>EMI No</th><th>Amount</th><th>Date</th></tr>`;
+        let table = `<table border="1" style="width:100%; border-collapse:collapse; font-size:12px; margin-top:10px;"><tr><th>EMI</th><th>Amount</th><th>Date</th></tr>`;
         for(let i=1; i<=5; i++) {
             let d = new Date(date); d.setMonth(d.getMonth() + (i-1));
             table += `<tr><td>${i}</td><td>₹${Math.round(emi)}</td><td>${d.toLocaleDateString('en-GB')}</td></tr>`;
@@ -149,35 +177,12 @@
         table += `</table>`;
 
         document.getElementById('lcOutput').innerHTML = `
-            <div style="border:2px solid #002D62; padding:15px; width:300px; margin:auto; text-align:center; background:#fff;">
-                <h3 style="margin:0; color:#002D62;">KANHA PRO-CAPITAL</h3>
+            <div style="border:2px solid #002D62; padding:15px; width:300px; margin:20px auto; text-align:center;">
+                <h3 style="margin:0;">KANHA PRO-CAPITAL</h3>
                 <small>UDYAM-CG-15-0035950</small><hr>
-                <div style="text-align:left; font-size:13px;">
-                    <b>Customer:</b> ${name}<br>
-                    <b>Loan Amt:</b> ₹${amt}
-                </div>
+                <p style="text-align:left;"><b>Name:</b> ${name}<br><b>Amount:</b> ₹${amt}</p>
                 ${table}
-                <button class="no-print" onclick="window.print()" style="margin-top:10px; padding:5px 15px; background:#002D62; color:white; border:none; cursor:pointer;">Print Card</button>
-            </div>`;
-    }
-
-    function generateFDCert() {
-        const name = document.getElementById('fdName').value;
-        const amt = document.getElementById('fdAmt').value;
-        const months = document.getElementById('fdMonths').value;
-        const date = document.getElementById('fdDate').value;
-        if(!name || !amt || !months || !date) return alert("Details bhariye!");
-
-        document.getElementById('fdOutput').innerHTML = `
-            <div style="border:10px solid #002D62; padding:30px; text-align:center; background:#fff;">
-                <h2 style="color:#002D62;">INVESTMENT CERTIFICATE</h2>
-                <p style="font-size:18px;">Certified that <b>${name}</b> has invested <b>₹${amt}</b> for <b>${months} months</b>.</p>
-                <p>Monthly Return: 3% Fixed | MSME: UDYAM-CG-15-0035950</p>
-                <div style="margin-top:50px; text-align:right;">
-                    <p>__________________</p>
-                    <p><b>Yuvraj Dewangan</b><br>(Proprietor Signature)</p>
-                </div>
-                <button class="no-print" onclick="window.print()" style="padding:10px 20px; background:#002D62; color:white; border:none; cursor:pointer;">Print Certificate</button>
+                <button class="no-print" onclick="window.print()" style="margin-top:10px;">Print Card</button>
             </div>`;
     }
 </script>
