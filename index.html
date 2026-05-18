@@ -1,97 +1,306 @@
-<!DOCTYPE html>
-<html lang="hi">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kanha Pro-Capital Private Limited | Rajnandgaon</title>
+    <title>Kanha Pro Capital | Elite Financial Consulting & Investment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; color: #333; }
-        header { background: linear-gradient(135deg, #002366 0%, #004080 100%); color: white; padding: 60px 20px; text-align: center; }
-        nav { background: #fff; padding: 15px; text-align: center; border-bottom: 2px solid #ffd700; position: sticky; top: 0; z-index: 1000; }
-        nav a { margin: 0 15px; text-decoration: none; color: #002366; font-weight: bold; text-transform: uppercase; }
-        
-        .container { max-width: 1100px; margin: auto; padding: 20px; }
-        
-        .hero-box { background: #fdfdfd; padding: 40px; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 40px; }
-        .mission-tag { background: #e8f5e9; color: #2e7d32; padding: 10px 20px; border-radius: 50px; display: inline-block; font-weight: bold; margin-bottom: 20px; }
+        :root {
+            --primary: #0f172a;      /* Deep Slate Blue */
+            --card-bg: #1e293b;      /* Elegant Dark Blue */
+            --accent: #d69e2e;       /* Premium Gold */
+            --text-main: #f8fafc;    /* Clean White */
+            --text-muted: #94a3b8;   /* Soft Gray */
+            --success: #38a169;      /* Growth Green */
+        }
 
-        .services { display: flex; justify-content: space-between; flex-wrap: wrap; }
-        .card { background: white; border: 1px solid #eee; padding: 30px; width: 45%; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-top: 5px solid #002366; }
-        .card h3 { color: #002366; margin-top: 0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Urbanist', sans-serif; background-color: var(--primary); color: var(--text-main); line-height: 1.6; }
 
-        .form-section { background: #002366; color: white; padding: 40px; border-radius: 15px; margin-top: 40px; }
-        .form-section h2 { color: #ffd700; text-align: center; }
-        input, select { width: 100%; padding: 12px; margin: 10px 0; border-radius: 5px; border: none; font-size: 16px; }
+        /* 1. NAVIGATION BAR */
+        .navbar { background-color: rgba(15, 23, 42, 0.95); padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid rgba(214, 158, 46, 0.2); position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
+        .logo-block h1 { font-family: 'Playfair Display', serif; font-size: 24px; color: #fff; letter-spacing: 1px; }
+        .logo-block span { display: block; font-size: 11px; color: var(--accent); letter-spacing: 2px; font-weight: bold; margin-top: -2px; }
+        .nav-btn { background: transparent; border: 2px solid var(--accent); color: var(--text-main); padding: 10px 22px; font-weight: 600; font-size: 15px; border-radius: 4px; cursor: pointer; transition: 0.3s; }
+        .nav-btn:hover { background-color: var(--accent); color: #000; }
+
+        /* 2. HERO SECTION */
+        .hero { padding: 180px 8% 100px 8%; text-align: center; background: radial-gradient(circle at top right, rgba(214, 158, 46, 0.15), transparent 60%); }
+        .hero h2 { font-family: 'Playfair Display', serif; font-size: 52px; margin-bottom: 15px; color: #fff; }
+        .hero h2 span { color: var(--accent); }
+        .hero p { font-size: 20px; color: var(--text-muted); max-width: 700px; margin: 0 auto 35px auto; }
+
+        /* Sections Structure */
+        section { padding: 80px 8%; border-bottom: 1px solid rgba(148, 163, 184, 0.1); }
+        .sec-title { font-family: 'Playfair Display', serif; font-size: 36px; color: #fff; margin-bottom: 40px; text-align: center; }
+        .sec-title span { color: var(--accent); }
+
+        /* 3. VALUES TILES GRID */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .tile { background-color: var(--card-bg); padding: 40px 30px; border-radius: 8px; border: 1px solid rgba(214, 158, 46, 0.1); transition: 0.3s; text-align: center; }
+        .tile:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .tile i { font-size: 44px; color: var(--accent); margin-bottom: 20px; }
+        .tile h4 { font-size: 22px; margin-bottom: 12px; }
+        .tile p { color: var(--text-muted); font-size: 16px; }
+
+        /* 4. TEAM PROFILE CARDS */
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
+        .team-card { background-color: var(--card-bg); border-radius: 8px; overflow: hidden; border-top: 4px solid var(--accent); padding: 30px 20px; text-align: center; }
+        .team-card .role-tag { background: rgba(214, 158, 46, 0.15); color: var(--accent); padding: 4px 12px; font-size: 12px; font-weight: 700; border-radius: 4px; display: inline-block; margin-bottom: 15px; text-transform: uppercase; }
+        .team-card h4 { font-size: 20px; margin-bottom: 8px; color: #fff; }
+        .team-card p { color: var(--text-muted); font-size: 15px; }
+
+        /* 5. RISK & TECH DETAILS */
+        .split-box { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .split-box ul { list-style: none; }
+        .split-box li { margin-bottom: 20px; font-size: 18px; color: var(--text-muted); display: flex; align-items: start; }
+        .split-box li i { color: var(--accent); margin-right: 15px; font-size: 22px; margin-top: 4px; }
+
+        /* 6. LOGIN PORTAL BOX */
+        .login-section { max-width: 450px; margin: 40px auto 0 auto; background: var(--card-bg); padding: 40px; border-radius: 8px; border: 1px solid rgba(214, 158, 46, 0.2); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-muted); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+        .form-group input { width: 100%; padding: 12px 15px; background: #0f172a; border: 1px solid rgba(148, 163, 184, 0.2); border-radius: 4px; color: #fff; font-size: 16px; font-family: inherit; }
+        .form-group input:focus { border-color: var(--accent); outline: none; }
+        .login-btn { width: 100%; background: var(--accent); color: #000; border: none; padding: 14px; font-size: 16px; font-weight: 700; border-radius: 4px; cursor: pointer; transition: 0.3s; }
+        .login-btn:hover { background-color: #b7791f; color: #fff; }
+
+        /* 7. HIDDEN SECURE DASHBOARD CONTAINER */
+        .dashboard-wrapper { display: none; padding: 140px 8% 80px 8%; max-width: 1200px; margin: 0 auto; }
+        .db-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(148, 163, 184, 0.2); padding-bottom: 15px; margin-bottom: 40px; }
+        .db-header h3 { font-family: 'Playfair Display', serif; font-size: 32px; }
+        .logout-btn { background: #e53e3e; color: white; border: none; padding: 8px 18px; border-radius: 4px; font-weight: 600; cursor: pointer; }
         
-        .btn-submit { background: #ffd700; color: #002366; border: none; padding: 15px; width: 100%; font-size: 18px; font-weight: bold; cursor: pointer; border-radius: 5px; transition: 0.3s; }
-        .btn-submit:hover { background: #fff; }
+        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 40px; }
+        .m-card { background: var(--card-bg); padding: 30px; border-radius: 8px; border-left: 4px solid var(--accent); }
+        .m-card.active-status { border-left-color: var(--success); }
+        .m-card h5 { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .m-card .value { font-size: 32px; font-weight: 700; color: #fff; }
 
-        footer { background: #1a1a1a; color: #ccc; padding: 40px 20px; text-align: center; margin-top: 60px; }
-        .director-info { color: #fff; font-weight: bold; margin-top: 10px; }
+        .table-box { background: var(--card-bg); padding: 30px; border-radius: 8px; overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th, td { padding: 15px; border-bottom: 1px solid rgba(148, 163, 184, 0.1); font-size: 16px; }
+        th { color: var(--accent); text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
+
+        footer { text-align: center; padding: 40px; color: var(--text-muted); font-size: 14px; border-top: 1px solid rgba(148, 163, 184, 0.1); }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>KANHA PRO-CAPITAL PVT. LTD.</h1>
-    <p style="font-size: 1.3em;">Aapka Sapna, Hamara Capital</p>
-</header>
-
-<nav>
-    <a href="#home">Home</a>
-    <a href="#about">Mission</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<div class="container" id="home">
-    <div class="hero-box">
-        <span class="mission-tag">Hamara Sankalp</span>
-        <h2>Rajnandgaon Ke Entrepreneurs Ki Pehli Pasand</h2>
-        <p style="font-size: 18px;">Hum naye aur ubharte hue udyamiyon ko capital dete hain aur niveshakon (Investors) ko FD-Style mein surakshit return pradan karte hain.</p>
+    <div class="navbar">
+        <div class="logo-block">
+            <h1>KANHA PRO CAPITAL</h1>
+            <span>UDYAM-CG-15-0035950 &bull; GOVT REGISTERED</span>
+        </div>
+        <button class="nav-btn" id="top-nav-action" onclick="scrollToLogin()">Investor Login</button>
     </div>
 
-    <section id="services">
-        <h2 style="text-align: center; margin-bottom: 30px;">Hamari Mukhyaye Sevayein</h2>
-        <div class="services">
-            <div class="card">
-                <h3>Entrepreneur Funding</h3>
-                <p>Agar aapke paas ek naya business idea hai ya aap apne purane kaam ko badhana chahte hain, toh hum aapko zaroori capital pradan karenge.</p>
+    <div id="public-website-view">
+        
+        <div class="hero">
+            <div class="role-tag" style="background: rgba(214, 158, 46, 0.15); color: var(--accent); padding: 5px 15px; font-size: 13px; font-weight: 700; border-radius: 4px; display: inline-block; margin-bottom: 20px; letter-spacing: 1px;">PREMIUM ASSET CONSULTING</div>
+            <h2>Smart Capital Management & <span>Growth Solutions</span></h2>
+            <p>Institutional grade financial ledger structuring and private consulting network based out of Rajnandgaon, Chhattisgarh.</p>
+            <button class="nav-btn" style="background:var(--accent); color:#000; padding:12px 30px;" onclick="scrollToLogin()">Access Your Dashboard</button>
+        </div>
+
+        <section id="values">
+            <h3 class="sec-title">Our Institutional <span>Foundations</span></h3>
+            <div class="grid-3">
+                <div class="tile">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h4>Absolute Compliance</h4>
+                    <p>Every asset contract is explicitly bound by Indian MSME rules, offering top-tier security for legal framework validation.</p>
+                </div>
+                <div class="tile">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <h4>Consistent Yields</h4>
+                    <p>Generating fixed strategic returns at 3% monthly terms by utilizing proprietary capital rotation systems.</p>
+                </div>
+                <div class="tile">
+                    <i class="fa-solid fa-network-wired"></i>
+                    <h4>Transparent Ledger</h4>
+                    <p>Complete open visibility of monthly return logs via secure direct dashboard ledger mapping.</p>
+                </div>
             </div>
-            <div class="card">
-                <h3>Fixed Investment (FD)</h3>
-                <p>Hamari company mein invest karein aur Fixed Deposit jaisa fixed aur surakshit monthly ya yearly return payein.</p>
+        </section>
+
+        <section id="team">
+            <h3 class="sec-title">The Corporate <span>Executive Team</span></h3>
+            <div class="grid-4">
+                <div class="team-card">
+                    <span class="role-tag">Founder & CEO</span>
+                    <h4>Yuvraj Dewangan</h4>
+                    <p>Directs micro-capital strategies, financial technology structures, and client investment distributions.</p>
+                </div>
+                <div class="team-card">
+                    <span class="role-tag">Risk & Field Ops</span>
+                    <h4>Laxminarayan Sahu</h4>
+                    <p>Manages 3-tier physical KYC verifications, ground risk modeling, and location audits.</p>
+                </div>
+                <div class="team-card">
+                    <span class="role-tag">Ledger & Accounts</span>
+                    <h4>Jagmohan Dewangan</h4>
+                    <p>Controls central dual-entry accounting, Tally 9 management, and Slice Business Bank reconciliations.</p>
+                </div>
+                <div class="team-card">
+                    <span class="role-tag">Sales & Recovery</span>
+                    <h4>Shubham Yadav</h4>
+                    <p>Handles daily field data synchronization via Freebird system apps and route optimization metrics.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="framework">
+            <h3 class="sec-title">Risk Mitigation & <span>Operational Technology</span></h3>
+            <div class="split-box">
+                <div>
+                    <h4 style="font-size:26px; margin-bottom:20px; color:var(--accent);">How We Secure Operations:</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-circle-check"></i><div><strong>Physical Verification:</strong> No asset deployment happens without a physical check at the client's place of operations by Laxminarayan's unit.</div></li>
+                        <li><i class="fa-solid fa-circle-check"></i><div><strong>Tally 9 Accounting:</strong> Strict daily compliance checking handled continuously by Jagmohan to ensure mathematical precision.</div></li>
+                        <li><i class="fa-solid fa-circle-check"></i><div><strong>Strict Fund Isolation:</strong> 100% of institutional investor funds remain locked inside the corporate Slice Current Account with zero personal intermixing.</div></li>
+                    </ul>
+                </div>
+                <div class="tile" style="background: rgba(30,41,59,0.3); padding:50px;">
+                    <i class="fa-solid fa-microchip" style="font-size:55px;"></i>
+                    <h4 style="margin-top:15px; margin-bottom:10px;">Freebird App Integration</h4>
+                    <p>Field metrics, route logging, and collection tracking update directly to our cloud core database every single day at 06:00 PM.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="login-portal-box" style="background: rgba(30,41,59,0.2);">
+            <h3 class="sec-title">Secure Investor <span>Gatepass Portal</span></h3>
+            <div class="login-section" id="login-anchor">
+                <div class="form-group">
+                    <label>Client Investor ID</label>
+                    <input type="text" id="client-id" placeholder="Enter Secure ID (e.g., AAKASH01)" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>Access Password</label>
+                    <input type="password" id="password" placeholder="••••••••">
+                </div>
+                <button class="login-btn" onclick="executeSecureLogin()">Sign In to Dashboard</button>
+                <p id="err-log" style="color:#e53e3e; font-size:14px; text-align:center; margin-top:15px; display:none; font-weight:600;"><i class="fa-solid fa-triangle-exclamation"></i> Invalid Security ID or Password combination!</p>
+            </div>
+        </section>
+    </div>
+
+    <div class="dashboard-wrapper" id="secure-dashboard-view">
+        <div class="db-header">
+            <div>
+                <p style="color:var(--accent); font-size:12px; font-weight:700; letter-spacing:2px;">KANHA PRO CAPITAL LIVE NETWORK</p>
+                <h3>Welcome Back, <span id="db-user-name" style="color:#fff;">Investor</span></h3>
+            </div>
+            <button class="logout-btn" onclick="executePortalLogout()"><i class="fa-solid fa-power-off"></i> Secure Logout</button>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="m-card">
+                <h5>Total Invested Principal</h5>
+                <div class="value" id="db-principal">₹0.00</div>
+            </div>
+            <div class="m-card">
+                <h5>Agreed Monthly Return Rate</h5>
+                <div class="value" style="color:var(--accent);">3.00% <span style="font-size:16px; font-weight:normal; color:var(--text-muted);">/ Month</span></div>
+            </div>
+            <div class="m-card active-status">
+                <h5>Next Monthly Interest Payout</h5>
+                <div class="value" id="db-payout" style="color:var(--success);">₹0.00</div>
+                <p style="font-size:13px; color:var(--text-muted); margin-top:5px;" id="db-payout-date">Due: --/--/----</p>
             </div>
         </div>
-    </section>
 
-    <section id="contact" class="form-section">
-        <h2>Aaj Hi Humse Judein</h2>
-        <p style="text-align: center;">Niche diya gaya form bharein, hamari team aapse turant sampark karegi.</p>
-        <form>
-            <input type="text" placeholder="Aapka Pura Naam" required>
-            <input type="tel" placeholder="Mobile Number (992XXXXXXX)" required>
-            <select>
-                <option>Main ek Entrepreneur hoon (Funding Chahiye)</option>
-                <option>Main ek Investor hoon (Paisa Lagana Hai)</option>
-            </select>
-            <input type="number" placeholder="Anumaanit Rashi (Amount)">
-            <button type="submit" class="btn-submit">Submit Karein</button>
-        </form>
-    </section>
-</div>
-
-<footer>
-    <p><strong>KANHA PRO-CAPITAL PRIVATE LIMITED</strong></p>
-    <div class="director-info">
-        Directors: Yuvraj Dewangan & Laxminarayan Sahu
+        <div class="table-box">
+            <h4 style="font-size:20px; margin-bottom:20px; color:#fff;"><i class="fa-solid fa-list-check" style="color:var(--accent);"></i> Real-time Statement Ledger Log</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Transaction Date</th>
+                        <th>Description Details</th>
+                        <th>Credit Amount (₹)</th>
+                        <th>Disbursal Channel</th>
+                        <th>Verification Status</th>
+                    </tr>
+                </thead>
+                <tbody id="db-ledger-rows">
+                    </tbody>
+            </table>
+        </div>
     </div>
-    <p style="margin-top: 20px;">Office: Rajnandgaon, Chhattisgarh</p>
-    <p>Email: yuvraj.kanhatech@gmail.com | Phone: 7038164867</p>
-    <p style="font-size: 12px; margin-top: 30px; border-top: 1px solid #333; padding-top: 20px;">
-        &copy; 2026 Kanha Pro-Capital. Sabhi adhikar surakshit hain.
-    </p>
-</footer>
 
+    <footer>
+        <p>&copy; 2026 Kanha Pro Capital. All Corporate Rights Reserved.</p>
+        <p style="font-size:11px; color:#64748b; margin-top:5px;">Registered Address: 124, Medha, Dongargarh, Rajnandgaon, CG - 491445</p>
+    </footer>
+
+    <script>
+        // Database simulation holding live Investor records
+        const internalInvestorDb = {
+            "AAKASH01": {
+                name: "Aakash Yadav",
+                principal: "₹5,00,000",
+                payout: "₹15,000",
+                date: "Due Date: 05th June 2026",
+                pass: "kanha789",
+                rows: `<tr><td>15-May-2026</td><td>Initial Capital Receipt Acknowledgment</td><td>₹5,00,000 (Cr)</td><td>Slice Bank NEFT</td><td><b style="color:var(--success);"><i class="fa-solid fa-circle-check"></i> Accounted</b></td></tr>`
+            },
+            "FULESHWARI02": {
+                name: "Fuleshwari Sahu",
+                principal: "₹3,00,000",
+                payout: "₹9,000",
+                date: "Due Date: 10th June 2026",
+                pass: "kanha456",
+                rows: `<tr><td>18-May-2026</td><td>Initial Capital Receipt Acknowledgment</td><td>₹3,00,000 (Cr)</td><td>Slice Bank IMPS</td><td><b style="color:var(--success);"><i class="fa-solid fa-circle-check"></i> Accounted</b></td></tr>`
+            }
+        };
+
+        function scrollToLogin() {
+            document.getElementById('login-anchor').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function executeSecureLogin() {
+            const idInput = document.getElementById('client-id').value.trim().toUpperCase();
+            const passInput = document.getElementById('password').value;
+            const errorText = document.getElementById('err-log');
+
+            if (internalInvestorDb[idInput] && internalInvestorDb[idInput].pass === passInput) {
+                errorText.style.display = 'none';
+                
+                // Switch application UI layouts
+                document.getElementById('public-website-view').style.display = 'none';
+                document.getElementById('secure-dashboard-view').style.display = 'block';
+                document.getElementById('top-nav-action').style.display = 'none'; // hide login nav button when logged in
+
+                // Hydrate Investor Metrics Dynamic allocations
+                document.getElementById('db-user-name').innerText = internalInvestorDb[idInput].name;
+                document.getElementById('db-principal').innerText = internalInvestorDb[idInput].principal;
+                document.getElementById('db-payout').innerText = internalInvestorDb[idInput].payout;
+                document.getElementById('db-payout-date').innerText = internalInvestorDb[idInput].date;
+                document.getElementById('db-ledger-rows').innerHTML = internalInvestorDb[idInput].rows;
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                errorText.style.display = 'block';
+            }
+        }
+
+        function executePortalLogout() {
+            document.getElementById('secure-dashboard-view').style.display = 'none';
+            document.getElementById('public-website-view').style.display = 'block';
+            document.getElementById('top-nav-action').style.display = 'block';
+            
+            // Flush input fields for session safety
+            document.getElementById('client-id').value = '';
+            document.getElementById('password').value = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
